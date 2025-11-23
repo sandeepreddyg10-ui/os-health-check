@@ -7,7 +7,7 @@ done
 
 # Add timestamp
 TIMESTAMP=$(date +%F_%H%M)
-REPORT="${FILENAME}_${TIMESTAMP}.log"
+REPORT=/var/log/"${FILENAME}_${TIMESTAMP}.log"
 
 echo "Report will be saved as: $REPORT"
 sleep 1
@@ -34,7 +34,7 @@ uname -r >> $REPORT
 
 echo -e "\n---- list of Kernel Version ----" >> $REPORT
 
-rpm -qa | grep -I kernel >> $REPORT
+rpm -qa | grep -i kernel >> $REPORT
 
 echo -e "\n---- /boot information ----" >> $REPORT
 
@@ -144,4 +144,4 @@ grep -Ei "error|fail|critical|warn" /var/log/messages | tail -n 50 >> $REPORT 2>
 
 echo -e "\n==================== End of Report ====================" >> $REPORT
 
-echo "Report created successfully: $REPORT"
+echo "Report created successfully: /var/log/$REPORT"
