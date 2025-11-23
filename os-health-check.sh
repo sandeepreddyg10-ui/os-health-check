@@ -144,4 +144,4 @@ grep -Ei "error|fail|critical|warn" /var/log/messages | tail -n 50 >> $REPORT 2>
 
 echo -e "\n==================== End of Report ====================" >> $REPORT
 
-echo "Report created successfully: /var/log/$REPORT"
+echo "Report created successfully: $REPORT"
